@@ -1,6 +1,6 @@
 .wrapper {
-	background-color: #00000099;
-	box-shadow: 1px 3px 5px #000000b3;
+	background-color: #1a191f;
+	box-shadow: 1px 3px 5px #00000049;
 	a {
 		color: #fff;
 		text-decoration: none;
@@ -8,40 +8,54 @@
 }
 .appBar {
 	display: grid;
-	grid-template-columns: (1fr 1fr 1fr 1fr);
+	grid-template-columns: (1fr 1fr 1fr );
 	gap: 10px;
 	align-items: center;
-	height: 60px;
+	width: 90%;
+	margin: 0 auto;
+	height: 80px;
 }
 .logo {
-	justify-self: center;
 	font-size: 20px;
 	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	span{
+		color: #f5ab00;
+	}
+	.img{
+		width: 5%;
+	}
 }
 .menu {
 	display: flex;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	justify-content: space-between;
 	gap: 10px;
 	font-weight: 200;
-	font-size: 20px;
+	font-size: 18px;
+	
+	.menuItem{
+		transition: color 0.3s ease-in;
+		&:hover{
+			color: #f5ab00;
+		}
+	}
+}
 
+.rightBar{
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 20px;
 }
 .search{
-	justify-self: end;
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	position: relative;
-	input{
-		background: transparent;
-		font-size: 20px;
-		color: #fff;
-		border: 1px solid #ffffff5b;
-		padding: 3px;
-		outline: none;
-		width: max-content;
-		border-radius: 5px;
-	}
 }
 .searchIcn{
  color: #fff;
@@ -54,9 +68,10 @@
 	gap: 10px;
 	button{
 		background-color: transparent;
-		border: 1px solid #fff;
+		border: 1px solid  #f5ab00;
 		border-radius: 5px;
 		color: #fff;
 		padding: 10px 20px;
+		text-transform: uppercase;
 	}
 }

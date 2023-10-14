@@ -9,7 +9,8 @@ function Header() {
     <div className={cl.wrapper}>
       <nav className={cl.appBar}>
         <a href="#" className={cl.logo}>
-          React Cinema
+			<img className={cl.img} src="/logo.png" alt="" />
+          React <span>Cinema</span> 
         </a>
         <div className={cl.menu}>
           {pages.map((item) => (
@@ -18,13 +19,13 @@ function Header() {
             </a>
           ))}
         </div>
-        <div className={cl.search}>
-          {/* <BsSearch className={cl.searchIcn} /> */}
-          <input placeholder="Search" type="search" />
-        </div>
-        <div className={cl.auth}>
-          <button>Sing in</button>
-          <button>Sing out</button>
+        <div className={cl.rightBar}>
+          <div className={cl.search}>
+            <BsSearch className={cl.searchIcn} />
+          </div>
+          <div className={cl.auth}>
+            <button>Sign in</button>
+          </div>
         </div>
       </nav>
     </div>
