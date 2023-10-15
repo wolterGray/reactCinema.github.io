@@ -17,7 +17,7 @@ function Category({item}) {
       />
       <div className={cn(cl.dropWindHide, showDrop && cl.dropWindShow)}>
         {item.category.map((elem) => (
-          <div className={cl.dropdownItem} onClick={() => setSelectItem(elem)}>
+          <div key={elem} className={cl.dropdownItem} onClick={() => setSelectItem(elem)}>
             {elem}
           </div>
         ))}
