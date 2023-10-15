@@ -1,16 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, {useRef, useState} from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import './swipe.scss';
+import "./swipe.scss";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import {Autoplay, Pagination, Navigation} from "swiper/modules";
 
 export default function SwipeSlide({slideData}) {
   return (
@@ -27,14 +27,13 @@ export default function SwipeSlide({slideData}) {
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {slideData && slideData.map(slide=>(
-		"/homeSlide",
-          <SwiperSlide><img  src={`/homeSlide/${slide}`} alt="Movie Image" /></SwiperSlide>
-        ))}
-        
-       
+        className="mySwiper">
+        {slideData &&
+          slideData.map((slide) => (
+            <SwiperSlide key={slide}>
+              <img src={`/homeSlide/${slide}`} alt="Movie Image" />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </>
   );

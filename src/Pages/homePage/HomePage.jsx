@@ -2,6 +2,8 @@ import React from "react";
 import cl from "./home.module.scss";
 import SwipeSlide from "../../components/SwipeSlide/SwipeSlide";
 import Container from "../../components/container/Container";
+import Category from "../../components/Filter/Filter";
+import Cards from "../../components/Cards/Cards";
 
 function HomePage() {
   const slideData = [
@@ -18,14 +20,8 @@ function HomePage() {
         <SwipeSlide slideData={slideData} />
       </div>
       <Container>
-        <div className={cl.filters}>
-          <div className={cl.title}>Filters</div>
-          <div className={cl.categories}>
-            <div className={cl.genres}>Genres</div>
-            <div className={cl.year}>Year</div>
-            <div className={cl.rating}>Rating</div>
-          </div>
-        </div>
+       <Category/>
+		  <Cards/>
       </Container>
     </div>
   );
