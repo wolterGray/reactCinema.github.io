@@ -2,6 +2,7 @@ import React from "react";
 import cl from "./header.module.scss";
 import {BsSearch} from "react-icons/bs";
 import Logo from "../logo/Logo";
+import Button from "../button/Button";
 
 function Header() {
   const pages = ["Home", "Movie", "Serials", "Cartons"];
@@ -9,7 +10,7 @@ function Header() {
   return (
     <header className={cl.wrapper}>
       <nav className={cl.appBar}>
-       <Logo/>
+        <Logo />
         <div className={cl.menu}>
           {pages.map((item) => (
             <a key={item} href="#" className={cl.menuItem}>
@@ -21,9 +22,7 @@ function Header() {
           <div className={cl.search}>
             <BsSearch className={cl.searchIcn} />
           </div>
-          <div className={cl.auth}>
-            <button>Sign in</button>
-          </div>
+          <Button>Sign in</Button>
         </div>
       </nav>
     </header>
