@@ -4,6 +4,7 @@ import SwipeSlide from "../../components/SwipeSlide/SwipeSlide";
 import Container from "../../components/container/Container";
 import Category from "../../components/Filter/Filter";
 import Cards from "../../components/Cards/Cards";
+import Footer from "../../components/Footer/Footer";
 
 function HomePage() {
   const slideData = [
@@ -20,9 +21,10 @@ function HomePage() {
         <SwipeSlide slideData={slideData} />
       </div>
       <Container>
-       <Category/>
-		  <Cards/>
+        <Category />
+        <Cards />
       </Container>
+      <Footer/>
     </div>
   );
 }

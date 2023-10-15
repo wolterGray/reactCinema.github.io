@@ -1,6 +1,7 @@
 .wrapper {
 	background-color: #1a191fd2;
 	box-shadow: 1px 3px 5px #00000049;
+	border-bottom: 1px solid #222028;
 	z-index: 2;
 	a {
 		color: #fff;
@@ -14,21 +15,9 @@
 	align-items: center;
 	width: 90%;
 	margin: 0 auto;
-	height: 80px;
+	height: 60px;
 }
-.logo {
-	font-size: 20px;
-	font-weight: 600;
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	span{
-		color: #f5ab00;
-	}
-	.img{
-		width: 5%;
-	}
-}
+
 .menu {
 	display: flex;
 	text-transform: uppercase;

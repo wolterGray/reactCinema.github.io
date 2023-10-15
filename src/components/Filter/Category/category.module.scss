@@ -13,7 +13,7 @@
 	color: #f5ac00af;
 	
 	padding:5px 10px;
-	width: 200px;
+	min-width: 150px;
 	&:hover{
 		color: #f5ab00;
 		border: 1px solid #f5ab00;
@@ -22,7 +22,7 @@
 		font-size: 12px;
 	}
 }
-.dropWind{
+.dropWindHide{
 	display: grid;
 	grid-template-columns: 1fr;
 	padding:20px 40px;
@@ -35,9 +35,18 @@
 	background-color: rgba(18, 18, 18, 0.908);
 	border-radius: 10px;
 	backdrop-filter: blur(5px);
+	transition: all .2s ease;
+	opacity: 0;
+	visibility: hidden;
 	:last-child{
 		margin: 0;
 	}
+}
+.dropWindShow{
+	visibility: visible;
+	opacity: 1;
+	
+	
 }
 .dropdownItem{
 	margin-bottom: 10px;

@@ -1,17 +1,15 @@
 import React from "react";
 import cl from "./header.module.scss";
 import {BsSearch} from "react-icons/bs";
+import Logo from "../logo/Logo";
 
 function Header() {
   const pages = ["Home", "Movie", "Serials", "Cartons"];
 
   return (
-    <div className={cl.wrapper}>
+    <header className={cl.wrapper}>
       <nav className={cl.appBar}>
-        <a href="#" className={cl.logo}>
-			<img className={cl.img} src="/logo.png" alt="" />
-          React <span>Cinema</span> 
-        </a>
+       <Logo/>
         <div className={cl.menu}>
           {pages.map((item) => (
             <a key={item} href="#" className={cl.menuItem}>
@@ -28,7 +26,7 @@ function Header() {
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   );
 }
 
