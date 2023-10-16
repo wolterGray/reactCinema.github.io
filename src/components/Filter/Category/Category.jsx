@@ -1,23 +1,46 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import cl from "./category.module.scss";
 import {FaChevronUp} from "react-icons/fa";
 import cn from "classnames";
+import {CustomContext} from "../../../utils/Context";
 
 function Category({item}) {
+  const {receivingData, setGenre, setYear, setPaginatePage} = useContext(CustomContext);
   const [showDrop, setShowDrop] = React.useState(false);
-  const [selectItem, setSelectItem] = React.useState(item.nameCat);
+  const [selectCategory, setSelectCategory] = React.useState(item.nameCat);
+  function chooseFilter(elem) {
+    if (item.nameCat == "All Genres") {
+      if (elem != "All Genres") {
+        setGenre(elem);
+        setPaginatePage(1)
+      }else setGenre('')
+    }
+    if (item.nameCat == "All Years") {
+      if (elem != "All Years") {
+        setYear(elem);
+        setPaginatePage(1)
+      }else setYear('')
+    }
+  }
+
   return (
     <div
       className={cl.item}
       onMouseEnter={() => setShowDrop(true)}
       onMouseLeave={() => setShowDrop(false)}>
-      <p>{selectItem}</p>
+      <p>{selectCategory}</p>
       <FaChevronUp
         className={cn(cl.chevronIcn, showDrop && cl.chevronIcnRotate)}
       />
       <div className={cn(cl.dropWindHide, showDrop && cl.dropWindShow)}>
         {item.category.map((elem) => (
-          <div key={elem} className={cl.dropdownItem} onClick={() => setSelectItem(elem)}>
+          <div
+            key={elem}
+            className={cl.dropdownItem}
+            onClick={() => {
+              setSelectCategory(elem);
+              chooseFilter(elem);
+            }}>
             {elem}
           </div>
         ))}

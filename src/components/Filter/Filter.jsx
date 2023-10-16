@@ -4,6 +4,8 @@ import {FaChevronUp} from "react-icons/fa";
 import Category from "./Category/Category";
 
 function Filter() {
+  const [arr, setArr]=React.useState([])
+  
   const categoryData = [
     {
       nameCat: "All Genres",
@@ -27,11 +29,15 @@ function Filter() {
       nameCat: "All Years",
       category: [
         "All Years",
-        "2000-2005",
-        "2005-2010",
-        "2010-2015",
-        "2015-2020",
-        "2020-2024",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
       ],
     },
     {
@@ -44,7 +50,7 @@ function Filter() {
       <div className={cl.title}>Filters</div>
       <div className={cl.categories}>
         {categoryData.map((item, id) => (
-          <Category key={id} item={item} />
+          <Category  key={id} item={item} />
         ))}
       </div>
     </div>
