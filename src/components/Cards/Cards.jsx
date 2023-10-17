@@ -11,6 +11,8 @@ function Cards({desc = true}) {
     paginatePage,
     setPaginatePage,
     totalCount,
+    localDate,
+    moviePageData,
     setMoviePageData,
   } = useContext(CustomContext);
 
@@ -50,7 +52,10 @@ function Cards({desc = true}) {
             to="/movie"
             key={item.href}
             className={cl.item}
-            onClick={() => setMoviePageData([item])}>
+            onClick={() => {
+             localStorage.setItem("filmData", JSON.stringify(item));
+             setMoviePageData([item])
+            }}>
             <div className={cl.rating}>10</div>
             <img src={item.thumbnail} alt="movie" />
             {desc && (

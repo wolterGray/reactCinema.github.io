@@ -6,21 +6,29 @@ import Button from "../../components/button/Button";
 import {FaThumbsDown, FaThumbsUp} from "react-icons/fa";
 import {CustomContext} from "../../utils/Context";
 import {AiOutlineArrowLeft} from "react-icons/ai";
+import {useNavigate} from "react-router-dom";
 
 function MoviePage() {
+  let navigate = useNavigate();
   const {moviePageData} = React.useContext(CustomContext);
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const scroll = window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className={cl.wrapper}>
       <Container>
         {moviePageData?.map((movie) => (
-          <div key={movie.href} className={cl.movie}>
-            <div className={cl.topElement}>
+          <div
+            key={movie.href}
+            className={cl.movie}
+            >
+              <div className={cl.topElement} onClick={() => navigate(-1)}>
               <AiOutlineArrowLeft className={cl.arrowIcn} />
-              <h4 className={cl.title}>{movie.title}</h4>
-            </div>
+            <h4 className={cl.title}>{movie.title}</h4>
+              </div>
+           
 
             <div className={cl.movieChar}>
               <div className={cl.image}>
@@ -35,12 +43,12 @@ function MoviePage() {
                 </p>
                 <p className={cl.charItem}>
                   Genre:{" "}
-                  <span className={cl.charClr}>{movie.genres.join(",  ")}</span>
+                  <span className={cl.charClr}>{movie.genres.join(', ')}</span>
                 </p>
                 {/* <p className={cl.charItem}>Running time: 102min</p> */}
                 <p className={cl.charItem}>
                   Cast:{" "}
-                  <span className={cl.charClr}>{movie.cast.join(",  ")}</span>
+                  <span className={cl.charClr}>{movie.cast.join(', ')}</span>
                 </p>
                 <div className={cl.description}>{movie.extract}</div>
                 <div className={cl.watch}>

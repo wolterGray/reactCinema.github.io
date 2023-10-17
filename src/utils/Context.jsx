@@ -5,12 +5,13 @@ export const CustomContext = createContext();
 
 export const MyContext = ({children}) => {
   const [filmsData, setFilmsData] = React.useState([]);
-  const [moviePageData, setMoviePageData] = React.useState('');
+  const [moviePageData, setMoviePageData] = React.useState([]);
+
+  //JSON.parse(localStorage.getItem("filmData"))
   const [paginatePage, setPaginatePage] = React.useState(1);
   const [totalCount, setTotalCount] = React.useState(0);
   const [genre, setGenre] = React.useState("");
   const [year, setYear] = React.useState("");
-
   const receivingData = () => {
     axios
       .get(
@@ -27,6 +28,9 @@ export const MyContext = ({children}) => {
   React.useEffect(() => {
     receivingData();
   }, [genre, year]);
+  React.useEffect(() => {
+    setMoviePageData([JSON.parse(localStorage.getItem("filmData"))] || []);
+  }, []);
   const value = {
     filmsData,
     receivingData,
@@ -36,7 +40,7 @@ export const MyContext = ({children}) => {
     setYear,
     totalCount,
     moviePageData,
-    setMoviePageData
+    setMoviePageData,
   };
   return (
     <CustomContext.Provider value={value}>{children}</CustomContext.Provider>
