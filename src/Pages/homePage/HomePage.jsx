@@ -5,7 +5,7 @@ import Container from "../../components/container/Container";
 import Category from "../../components/Filter/Filter";
 import Cards from "../../components/Cards/Cards";
 
-function HomePage({filmsData}) {
+function HomePage() {
   const slideData = [
     "avengers.jpg",
     "ff9.jpg",
@@ -21,7 +21,7 @@ function HomePage({filmsData}) {
       </div>
       <Container>
         <Category />
-        <Cards filmsData={filmsData} />
+        <Cards  />
       </Container>
     </div>
   );

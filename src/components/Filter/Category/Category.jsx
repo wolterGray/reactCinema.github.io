@@ -13,13 +13,19 @@ function Category({item}) {
       if (elem != "All Genres") {
         setGenre(elem);
         setPaginatePage(1)
-      }else setGenre('')
+      }else {
+        setGenre('')
+        setPaginatePage(1)
+      }
     }
     if (item.nameCat == "All Years") {
       if (elem != "All Years") {
         setYear(elem);
         setPaginatePage(1)
-      }else setYear('')
+      }else {
+        setYear('')
+        setPaginatePage(1)
+      }
     }
   }
 

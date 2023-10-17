@@ -40,10 +40,10 @@ function Filter() {
         "2024",
       ],
     },
-    {
-      nameCat: "Rating",
-      category: ["All", "High rating"],
-    },
+    // {
+    //   nameCat: "Rating",
+    //   category: ["All", "High rating"],
+    // },
   ];
   return (
     <div className={cl.filters}>

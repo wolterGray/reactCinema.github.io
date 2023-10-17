@@ -1,9 +1,29 @@
-.wrapper{
-
+.wrapper {
+}
+.arrowIcn{
+	color: #f5ab00;
+	font-size: 35px;
+	cursor: pointer;
+	transition: transform 0.3s ease-out;
+	
 }
 .movie {
 	padding: 50px;
-	// max-height: calc(100vh - 100px);
+	
+	.topElement{
+		display: flex;
+		gap: 20px;
+		&:hover{
+			cursor: pointer;
+			.arrowIcn{
+				transform: translateX(-10px);
+			}
+			
+		}
+	}
+	span{
+		margin-left: 10px;
+	}
 }
 .title {
 	color: #fff;
@@ -33,14 +53,14 @@
 }
 .charItem {
 	color: #fff;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 100;
 	margin-bottom: 10px;
 }
 .charClr {
 	color: #f5ab00;
 }
-.watch{
+.watch {
 	display: flex;
 	align-items: center;
 	gap: 20px;
@@ -103,14 +123,14 @@
 	textarea {
 		background-color: #1b171c;
 		width: 100%;
-		outline:none;
+		outline: none;
 		color: #fff;
 		border-radius: 10px;
 		padding: 10px;
 		resize: none;
 		margin-bottom: 20px;
-		&:focus{
-			border-color:#f5ab00 ;
+		&:focus {
+			border-color: #f5ab00;
 		}
 	}
 }

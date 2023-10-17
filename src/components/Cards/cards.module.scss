@@ -1,8 +1,19 @@
+.notFound{
+	height: 50vh;
+	font-size: 30px;
+	color: #f5ac0084;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .cards {
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 30px;
 	margin-bottom: 50px;
+	position: relative;
 }
 .item {
 	background-color: #89898932;
@@ -28,7 +39,7 @@
 		border-radius: 50%;
 	}
 	img {
-		max-height: 400px;
+		height: 400px;
 		width: 100%;
 		overflow: hidden;
 		background-size:cover;
@@ -54,7 +65,11 @@
 .text {
 	padding: 20px;
 	.title {
-		font-size: 20px;
+		font-size: 18px;
+		color: #fff;
+		margin-bottom: 10px;
+	}
+	.year{
 		color: #fff;
 		margin-bottom: 10px;
 	}

@@ -5,6 +5,7 @@ export const CustomContext = createContext();
 
 export const MyContext = ({children}) => {
   const [filmsData, setFilmsData] = React.useState([]);
+  const [moviePageData, setMoviePageData] = React.useState('');
   const [paginatePage, setPaginatePage] = React.useState(1);
   const [totalCount, setTotalCount] = React.useState(0);
   const [genre, setGenre] = React.useState("");
@@ -15,7 +16,7 @@ export const MyContext = ({children}) => {
       .get(
         `http://localhost:3002/films?_limit=20&_page=${paginatePage}${
           genre && `&genres_like=${genre}`
-        }${year && `&year_like=${year}`}`
+        }${year && `&year_like=${year}`}&_sort=year&_order=desc`
       )
       .then((res) => {
         setFilmsData(res.data);
@@ -33,7 +34,9 @@ export const MyContext = ({children}) => {
     setPaginatePage,
     setGenre,
     setYear,
-	 totalCount
+    totalCount,
+    moviePageData,
+    setMoviePageData
   };
   return (
     <CustomContext.Provider value={value}>{children}</CustomContext.Provider>
