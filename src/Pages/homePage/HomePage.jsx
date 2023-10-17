@@ -7,19 +7,19 @@ import Cards from "../../components/Cards/Cards";
 
 function HomePage() {
   const slideData = [
-    "avengers.jpg",
+    "wenom.jpg",
+    "avengeres.jpg",
     "ff9.jpg",
-    "spiderM.jpg",
-    "gameOf.jpeg",
     "starW.jpeg",
-    "backTF.jpeg",
+    
   ];
   return (
     <div className={cl.wrapper}>
+      <Container>
       <div className={cl.slider}>
         <SwipeSlide slideData={slideData} />
       </div>
-      <Container>
+      
         <Category />
         <Cards  />
       </Container>

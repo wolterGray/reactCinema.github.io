@@ -4,34 +4,7 @@
 	border-bottom: 1px dotted #f5ac0021;
 }
 
-.search {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	position: relative;
-	color: #f5ac00c4;
 
-	input {
-		background: none;
-		border: 1px solid #f5ac00c4;
-		font-size: 18px;
-		padding: 10px;
-		border-radius: 10px;
-		color: #f5ac00c4;
-		outline: none;
-		&::-webkit-search-cancel-button {
-			display: none;
-		}
-		&::placeholder {
-			color: #f5ac0056;
-		}
-	}
-	.searchIcn {
-		position: absolute;
-		right: 10px;
-		cursor: pointer;
-	}
-}
 .title {
 	font-size: 30px;
 	color: #fff;

@@ -3,6 +3,7 @@
 	box-shadow: 1px 3px 5px #00000049;
 	border-bottom: 1px solid #222028;
 	z-index: 2;
+	margin-bottom: 30px;
 	a {
 		color: #fff;
 		text-decoration: none;
@@ -46,8 +47,16 @@
 	align-items: center;
 	gap: 10px;
 	position: relative;
+	cursor: pointer;
+	transition: scale 0.3s ease-in, color 0.3s ease ;
+	&:hover{
+		scale: 1.2;
+		.searchIcn{
+			color: #f5ab00;
+		}
+	}
 }
 .searchIcn{
  color: #fff;
-
+ transition:  color 0.3s ease ;
 }

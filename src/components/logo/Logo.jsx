@@ -1,9 +1,9 @@
 import React from "react";
 import cl from "./logo.module.scss";
 
-function Logo() {
+function Logo({path}) {
   return (
-    <a href="#" className={cl.logo}>
+    <a href={path} className={cl.logo}>
       <img className={cl.img} src="/logo.png" alt="" />
       React <span>Cinema</span>
     </a>

@@ -1,0 +1,31 @@
+.search {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	color: #f5ac0044;
+
+	input {
+		background: none;
+		border: 1px solid #f5ac0044;
+		font-size: 18px;
+		padding: 10px;
+		border-radius: 10px;
+		color: #f5ac00c4;
+		outline: none;
+		&:focus{
+			border-color:#f5ac00c4 ;
+		}
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+		&::placeholder {
+			color: #f5ac0056;
+		}
+	}
+	.searchIcn {
+		position: absolute;
+		right: 10px;
+		cursor: pointer;
+	}
+}

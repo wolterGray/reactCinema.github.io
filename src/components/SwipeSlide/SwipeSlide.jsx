@@ -18,8 +18,9 @@ export default function SwipeSlide({slideData}) {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        effect='fade'
         autoplay={{
-          delay: 3500,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
