@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import cl from "./filter.module.scss";
-import {FaChevronUp} from "react-icons/fa";
+import { FaSearch} from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import Category from "./Category/Category";
+import {CustomContext} from "../../utils/Context";
 
 function Filter() {
-  const [arr, setArr]=React.useState([])
-  
+  const {searchFilm, setSearchFilm} = useContext(CustomContext);
+
   const categoryData = [
     {
       nameCat: "All Genres",
@@ -50,8 +52,13 @@ function Filter() {
       <div className={cl.title}>Filters</div>
       <div className={cl.categories}>
         {categoryData.map((item, id) => (
-          <Category  key={id} item={item} />
+          <Category key={id} item={item} />
         ))}
+        <div className={cl.search}>
+          {searchFilm.trim().length == 0 ? <FaSearch className={cl.searchIcn} />:<AiOutlineClose className={cl.searchIcn} onClick={()=>setSearchFilm('')}/>}
+          
+          <input  placeholder="Search film" type="search" value={searchFilm} onChange={(e)=> setSearchFilm(e.target.value)}/>
+        </div>
       </div>
     </div>
   );
