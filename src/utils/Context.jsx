@@ -13,7 +13,9 @@ export const MyContext = ({children}) => {
   const [genre, setGenre] = React.useState("");
   const [year, setYear] = React.useState("");
   const [searchFilm, setSearchFilm] = React.useState("");
+  const [load, setLoad] = React.useState(true);
   const receivingData = () => {
+    setLoad(true)
     axios
       .get(
         `http://localhost:3002/films?_limit=20&_page=${paginatePage}${
@@ -25,6 +27,7 @@ export const MyContext = ({children}) => {
       .then((res) => {
         setFilmsData(res.data);
         setTotalCount(res.headers["x-total-count"]);
+        setLoad(false)
       });
   };
 
@@ -32,6 +35,7 @@ export const MyContext = ({children}) => {
     receivingData();
   }, [genre, year, searchFilm]);
   React.useEffect(() => {
+
     setMoviePageData([JSON.parse(localStorage.getItem("filmData"))] || []);
     
   }, []);
@@ -49,6 +53,7 @@ export const MyContext = ({children}) => {
     setSearchFilm,
     focusInput,
     setFocusInput,
+    load
   };
   return (
     <CustomContext.Provider value={value}>{children}</CustomContext.Provider>
