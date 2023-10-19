@@ -4,16 +4,13 @@ import {CustomContext} from "../../utils/Context";
 import Button from "../button/Button";
 import {Link, NavLink} from "react-router-dom";
 
-function Cards({desc = true}) {
+function Cards() {
   const {
     filmsData,
-    receivingData,
     paginatePage,
     setPaginatePage,
     totalCount,
-    localDate,
-    moviePageData,
-    setMoviePageData,
+    setMoviePageData
   } = useContext(CustomContext);
 
   const nextPage = () => {
@@ -26,12 +23,12 @@ function Cards({desc = true}) {
       setPaginatePage((prev) => prev - 1);
     }
   };
-
-  useEffect(() => {
-    receivingData();
-  }, [paginatePage]);
-
-  return filmsData.length > 0 ? (
+  const ratingColor = (rating) => {
+    if (rating < 6) return "red";
+    if (rating >= 6 && rating < 7) return "yellow";
+    else return "green";
+  };
+  return filmsData ? (
     <>
       <div className={cl.pagination}>
         <Button disabled={paginatePage < 2 && true} onClick={prevPage}>
@@ -47,24 +44,25 @@ function Cards({desc = true}) {
         </Button>
       </div>
       <div className={cl.cards}>
-        {filmsData.map((item) => (
+        {filmsData.map((item,id) => (
           <NavLink
-            to="/movie"
+            to={`movie/${item.href}`}
             key={item.href}
             className={cl.item}
             onClick={() => {
-             localStorage.setItem("filmData", JSON.stringify(item));
-             setMoviePageData([item])
+              setMoviePageData([item])
             }}>
-            <div className={cl.rating}>10</div>
-            <img src={item.thumbnail} alt="movie" />
-            {desc && (
-              <div className={cl.text}>
-                <div className={cl.title}>{item.title}</div>
-                <div className={cl.year}>{item.year}</div>
-                <div className={cl.genre}>{item.genres.join(", ")}</div>
-              </div>
-            )}
+            <div
+              style={{border: `2px solid ${ratingColor(item.average)}`}}
+              className={cl.rating}>
+              {item.average}
+            </div>
+            <img src={item.thumbnail} alt={item.title} />
+            <div className={cl.text}>
+              <div className={cl.title}>{item.title}</div>
+              <div className={cl.year}>{item.year}</div>
+              <div className={cl.genres}></div>
+            </div>
           </NavLink>
         ))}
       </div>

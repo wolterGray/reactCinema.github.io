@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	position: relative;
+	
 	color: #f5ac0044;
 
 	input {
@@ -16,16 +16,17 @@
 		&:focus{
 			border-color:#f5ac00c4 ;
 		}
-		&::-webkit-search-cancel-button {
-			display: none;
-		}
+		// &::-webkit-search-cancel-button {
+		// 	display: none;
+		// }
 		&::placeholder {
 			color: #f5ac0056;
 		}
 	}
+
 	.searchIcn {
 		position: absolute;
-		right: 10px;
+		right: 0px;
 		cursor: pointer;
 	}
 }

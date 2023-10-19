@@ -11,46 +11,47 @@ import {useNavigate} from "react-router-dom";
 function MoviePage() {
   let navigate = useNavigate();
   const {moviePageData} = React.useContext(CustomContext);
-  
+
   useEffect(() => {
     const scroll = window.scrollTo(0, 0);
+    
   }, []);
 
   return (
     <div className={cl.wrapper}>
       <Container>
-        {moviePageData?.map((movie) => (
-          <div
-            key={movie.href}
-            className={cl.movie}
-            >
-              <div className={cl.topElement} onClick={() => navigate(-1)}>
+        {moviePageData.length > 0 && moviePageData.map((movie) => (
+          <div key={movie.href} className={cl.movie}>
+            <div className={cl.topElement} onClick={() => navigate(-1)}>
               <AiOutlineArrowLeft className={cl.arrowIcn} />
-            <h4 className={cl.title}>{movie.title}</h4>
-              </div>
-           
-
+              <h4 className={cl.title}>
+                {movie.title} ({movie.year})
+              </h4>
+            </div>
             <div className={cl.movieChar}>
               <div className={cl.image}>
-                <img src={movie.thumbnail} alt="" />
+                <img
+                  src={movie.thumbnail}
+                  alt={movie.title}
+                />
               </div>
               <div className={cl.character}>
                 <p className={cl.charItem}>
-                  Year: <span>{movie.year}</span>{" "}
+                  Country:{" "}
+                  <span>
+                    {movie.production_countries?.map((i) => i.name + ", ")}
+                  </span>{" "}
                 </p>
                 <p className={cl.charItem}>
-                  Country: <span>Usa</span>
+                  Release date: <span>{movie.year}</span>{" "}
                 </p>
+                
+                
                 <p className={cl.charItem}>
-                  Genre:{" "}
-                  <span className={cl.charClr}>{movie.genres.join(', ')}</span>
+                  Genre: <span className={cl.charClr}>{movie.genres?.map(i => i + ', ')}</span>
                 </p>
-                {/* <p className={cl.charItem}>Running time: 102min</p> */}
-                <p className={cl.charItem}>
-                  Cast:{" "}
-                  <span className={cl.charClr}>{movie.cast.join(', ')}</span>
-                </p>
-                <div className={cl.description}>{movie.extract}</div>
+                <div className={cl.description}>{movie.extract
+}</div>
                 <div className={cl.watch}>
                   <Button>Treiler</Button>
                   <Button>Watch</Button>
